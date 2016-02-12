@@ -34,4 +34,5 @@ berlin_blues = media.Movie("Berlin Blues",
                            "http://www.imdb.com/title/tt0322545/?ref_=fn_al_tt_1")
 
 movies = [what_we_do_in_the_shadows, the_fountain, berlin_blues]
+
 fresh_tomatoes.open_movies_page(movies)
