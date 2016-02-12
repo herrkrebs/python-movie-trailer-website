@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Fresh Tomatoes!</title>
+
+    <!-- Bootstrap 3 -->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <style type="text/css" media="screen">
+        body {
+            padding-top: 80px;
+        }
+        #trailer .modal-dialog {
+            margin-top: 200px;
+            width: 640px;
+            height: 480px;
+        }
+        .hanging-close {
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            z-index: 9001;
+        }
+        #trailer-video {
+            width: 100%;
+            height: 100%;
+        }
+        .movie-tile {
+            padding-bottom: 20px;
+            padding-top: 20px;
+        }
+        .movie-tile:hover {
+            background-color: #EEE;
+        }
+
+        .movie-poster:hover {
+            background-color: #EEE;
+            cursor: pointer;
+        }
+        .scale-media {
+            padding-bottom: 56.25%;
+            position: relative;
+        }
+        .scale-media iframe {
+            border: none;
+            height: 100%;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            top: 0;
+            background-color: white;
+        }
+    </style>
+    <script type="text/javascript" charset="utf-8">
+        // Pause the video when the modal is closed
+        $(document).on('click', '.hanging-close, .modal-backdrop, .modal', function (event) {
+            // Remove the src so the player itself gets removed, as this is the only
+            // reliable way to ensure the video stops playing in IE
+            $("#trailer-video-container").empty();
+        });
+        // Start playing the video whenever the trailer modal is opened
+        $(document).on('click', '.movie-poster', function (event) {
+            var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
+            var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
+            $("#trailer-video-container").empty().append($("<iframe></iframe>", {
+              'id': 'trailer-video',
+              'type': 'text-html',
+              'src': sourceUrl,
+              'frameborder': 0
+            }));
+        });
+        // Animate in the movies when the page loads
+        $(document).ready(function () {
+          $('.movie-tile').hide().first().show("fast", function showNext() {
+            $(this).next("div").show("fast", showNext);
+          });
+        });
+    </script>
+</head>
+
+  <body>
+    <!-- Trailer Video Modal -->
+    <div class="modal" id="trailer">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <a href="#" class="hanging-close" data-dismiss="modal" aria-hidden="true">
+            <img src="https://lh5.ggpht.com/v4-628SilF0HtHuHdu5EzxD7WRqOrrTIDi_MhEG6_qkNtUK5Wg7KPkofp_VJoF7RS2LhxwEFCO1ICHZlc-o_=s0#w=24&h=24"/>
+          </a>
+          <div class="scale-media" id="trailer-video-container">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Page Content -->
+    <div class="container">
+      <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Fresh Tomatoes Movie Trailers</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      
+<div class="col-md-6 col-lg-4 movie-tile text-center">
+    <img class="movie-poster" src="https://upload.wikimedia.org/wikipedia/en/7/70/What_We_Do_in_the_Shadows_poster.jpg" data-trailer-youtube-id="Cv568AzZ-i8" data-toggle="modal" data-target="#trailer" width="220" height="342">
+    <h2>What We Do in the Shadows</h2>
+    <p>Viago, Deacon, and Vladislav are vampires who are finding that modern life has
+                                        them struggling with the mundane - like paying rent, keeping up with the chore wheel,
+                                        trying to get into nightclubs, and overcoming flatmate conflicts.</p>
+    <p>Release date: 2014</p>
+    <p>Actors: Jemaine Clement, Taika Waititi, Cori Gonzalez-Macuer</p>
+    <a href="http://www.imdb.com/title/tt3416742/?ref_=nv_sr_1" target="_blank"><img src="http://ia.media-imdb.com/images/M/MV5BMTgyOTIzMTA0NV5BMl5BcG5nXkFtZTcwMTA3MDg2OA@@._V1_.png" /></a>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center">
+    <img class="movie-poster" src="https://upload.wikimedia.org/wikipedia/en/e/ee/Fountain_poster_1.jpg" data-trailer-youtube-id="dAuxryJ6pv8" data-toggle="modal" data-target="#trailer" width="220" height="342">
+    <h2>The Fountain</h2>
+    <p>As a modern-day scientist, Tommy is struggling with mortality, desperately searching for
+                           the medical breakthrough that will save the life of his cancer-stricken wife, Izzi.</p>
+    <p>Release date: 2007</p>
+    <p>Actors: Hugh Jackman, Rachel Weisz, Sean Patrick Thomas</p>
+    <a href="http://www.imdb.com/title/tt0414993/" target="_blank"><img src="http://ia.media-imdb.com/images/M/MV5BMTgyOTIzMTA0NV5BMl5BcG5nXkFtZTcwMTA3MDg2OA@@._V1_.png" /></a>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center">
+    <img class="movie-poster" src="http://www.wagnerverein-jena.de/wp-content/uploads/2015/04/herr-lehmann.jpg" data-trailer-youtube-id="s8CjefK93ik" data-toggle="modal" data-target="#trailer" width="220" height="342">
+    <h2>Berlin Blues</h2>
+    <p>Frank Lehmann (Christian Ulmen) is a bartender working in Kreuzberg, a borough of
+                           West Berlin in October 1989, in the final weeks before the fall of the Berlin Wall.
+                           As he is approaching his 30th birthday, his friends start teasing him by calling him "Herr Lehmann" ("Mr. Lehmann").
+                           He has little interest in anything outside of SO 36, the eastern part of the borough of Kreuzberg.
+                           He has a brief relationship with Katrin (Katja Danowski (de)), a cook at a nearby bar.
+                           His best friend, Karl (Detlev Buck) slowly goes mad, and his parents show up for a visit, disrupting his laid-back lifestyle.</p>
+    <p>Release date: 2003</p>
+    <p>Actors: Christian Ulmen, Katja Danowski, Detlev Buck</p>
+    <a href="http://www.imdb.com/title/tt0322545/?ref_=fn_al_tt_1" target="_blank"><img src="http://ia.media-imdb.com/images/M/MV5BMTgyOTIzMTA0NV5BMl5BcG5nXkFtZTcwMTA3MDg2OA@@._V1_.png" /></a>
+</div>
+
+    </div>
+  </body>
+</html>
