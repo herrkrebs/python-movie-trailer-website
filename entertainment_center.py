@@ -15,7 +15,7 @@ what_we_do_in_the_shadows = media.Movie("What We Do in the Shadows",
                                         nightclubs, and overcoming flatmate
                                         conflicts.""",
                                         "https://upload.wikimedia.org/wikipedia/en/7/70/What_We_Do_in_the_Shadows_poster.jpg",  # noqa
-                                        "https://www.youtube.com/watch?v=Cv568AzZ-i8"  # noqa
+                                        "https://www.youtube.com/watch?v=Cv568AzZ-i8",  # noqa
                                         "2014",
                                         "Jemaine Clement, Taika Waititi, "
                                         "Cori Gonzalez-Macuer",
